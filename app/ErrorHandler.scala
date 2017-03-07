@@ -10,10 +10,13 @@ class ErrorHandler extends HttpErrorHandler {
   def onClientError(request: RequestHeader, statusCode: Int, message: String) = {
     Future.successful(
       statusCode match {
-        case 400=> Ok(views.html.error(" Oops!!!! BAD REQUEST"))
-        case 401=> Ok(views.html.error(" Oops!!!! UNAUTHORIZED"))
-        case 404=> Ok(views.html.error("Oops!!!! Page not Found"))
-        case 500=> Ok(views.html.error(" Oops!!!! Internal Server Error"))
+        case 400=>  Ok(views.html.error(" Oops!!!! BAD REQUEST"))
+        case 401=>  Ok(views.html.error(" Oops!!!! UNAUTHORIZED"))
+        case 404=>  Ok(views.html.error("Oops!!!! Page not Found"))
+        case 500=>  Ok(views.html.error("Oops!!!! Internal Server Error"))
+        case 503 => Ok(views.html.error("Oops!!!! Service Temporarily Unavailable"))
+        case 504 => Ok(views.html.error("Oops!!!!Gateway Time-Out"))
+        case _=>    Ok(views.html.error (" Oops!!!!Something went wrong!!"))
       }
     )
   }
