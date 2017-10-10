@@ -11,6 +11,8 @@ GET  /login                          controllers.LoginController.index
 GET  /signup                         controllers.SignupController.index
 GET  /profile                        controllers.ProfileController.index
 POST /create                         controllers.SignupController.createUser
-GET /userlogin                       controllers.LoginController.login
+POST /userlogin                       controllers.MyController.loginHandle
 GET /out                             controllers.ProfileController.outSession
+
+POST /mylogin                       controllers.LoginController.login
 
